@@ -9,3 +9,14 @@ end as SalaryAfterRaise
 from EmployeeDemographics
 join EmployeeSalary
 on EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+
+/* CASE STATEMENT */
+select FirstName, LastName, Age,
+case
+	when Age > 30 Then 'Old'
+	when Age between 27 and 30 Then 'Young'
+	else 'kid'
+end as GroupingAge
+from EmployeeDemographics
+where Age is not NULL
+order by Age
